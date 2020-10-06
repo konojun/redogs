@@ -1,0 +1,102 @@
+@charset "UTF-8";
+
+h1.maintitle {
+	color: #f4a460;
+	font-size: 130px;
+	display:inline;
+	position:absolute;
+	top: 320px;
+	left: 100px;
+	text-shadow: 3px 4px 5px #808080;
+}
+
+.detail {
+	font-size: 25px;
+	position: absolute;
+	top: 520px;
+	left: 200px;
+	text-shadow: 1px 2px 3px #808080;
+}
+
+.background {
+  background-color: #e0ffff;
+}
+
+.center {
+	text-align: center;
+}
+
+.submit-button {
+	background-color: #ffa500;
+	font-size: 15px;
+}
+
+.imageTitle {
+	position: absolute;
+	right: 150px;
+	top: 130px;
+}
+
+.imagecut {
+	border-radius:50%;
+	width: 300;
+	height: 400;
+}
+
+.header{
+	height: 64px;
+	background-color: #ea8943;
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+	margin: -10px;
+}
+
+li.entrybutton{
+	position:  absolute;
+	top: 20px;
+	right: 160px;
+	display:inline;
+	list-style: none;
+}
+
+li.loginbutton{
+	position:  absolute;
+	top: 20px;
+	right: 60px;
+	display:inline;
+	list-style: none;
+}
+
+li a{
+	color: white;
+	text-decoration: none;
+}
+
+.homebutton {
+	font-size: 25px;
+	display:inline;
+}
+
+.icon {
+	position: absolute;
+	top: 345px;
+	left: 670px;
+}
+
+body {
+	background-image: url("../img/homeimg.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	font-family: 'Sansita Swashed','メイリオ', cursive;
+	font-weight: bold;
+}
+
+.subtitle {
+	font-size: 30px;
+}
+
+.subtitle1 {
+	font-size: 30px;
+	position: absolute;
+	top: 400;
+}
