@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+/* ヘッダー */
+
+/* 新規ボタン */
+li.entrybutton{
+	position:  absolute;
+	top: 32px;
+	right: 14%;
+	display:inline;
+	list-style: none;
+}
+/* ログインボタン */
+li.loginbutton{
+	position:  absolute;
+	top: 32px;
+	right: 8%;
+	display:inline;
+	list-style: none;
+}
+
+/* ホームボタン */
+.homebutton {
+	position:  absolute;
+	top: 23px;
+	left: 1%;
+	font-size: 25px;
+	display:inline;
+}
+
+/* リンク装飾 */
+li a{
+	color: silver;
+	text-decoration: none;
+}
+
+/* ヘッダー背景 */
+header {
+	height: 64px;
+	background-color: white;
+	position: fixed;
+	display: inline;
+	height: 90px;
+	width: 100%;
+	margin: auto;
+}
