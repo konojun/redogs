@@ -21,7 +21,7 @@
 
 	<h1 class="maintitle scroll">Re:dogs</h1>
 	<div class="poem">
-		<p class="subtitle">&emsp;愛犬との思い出で繋がる。</p>
+		<p class="subtitle">&emsp;愛犬とのちんちんで繋がる。</p>
 	</div>
 	</div>
 	<div class="sub-background">
