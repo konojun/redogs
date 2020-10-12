@@ -25,12 +25,12 @@
 	</div>
 	</div>
 	<div class="sub-background">
-	<div class="subtitle1">
+	<div class="subtitle1 fadein">
 	<h2>愛犬との思い出をクラウド上に保存</h2>
 		<p>&emsp;&emsp;Re:dogs&nbsp;では、大切な愛犬との思い出をクラウド上に保存することができます。</p>
 	</div>
 
-	<div class="subtitle2">
+	<div class="subtitle2 fadein">
 	<h2>可愛いわんちゃんを全国で共有</h2>
 		<p>&emsp;&emsp;Re:dogsでは、自身がアップした愛犬の写真や動画を全国のユーザーに公開することができます。</p>
 		<p>&emsp;&emsp;全国の可愛いわんちゃんの写真や動画を共有して癒されましょう！</p>
@@ -41,7 +41,46 @@
   	$(function(){
   		$(".maintitle").hide();
   		$(".maintitle").fadeIn(1000);
-  });
+
+  		 var startPosition = 0
+  		  var winScrollPosition = 0;
+
+  		$(window).scroll(function() {
+  			// ヘッダーON/OFF
+  			winScrollPosition = $(this).scrollTop();
+
+  			if(winScrollPosition > startPosition){
+  				$("header").slideUp(100);
+  				$("a").slideUp(100);
+  			}else{
+  				$("header").slideDown(100);
+  				$("a").slideDown(100);
+  			}
+  			if(winScrollPosition == 0){
+  				$("header").removeClass("headerIn");
+  				$("li").find("a").removeClass("bottomColor");
+  				$("header").addClass("headerOut");
+  				$("li").find("a").addClass("topColor");
+  			}else{
+  				$("header").removeClass("headerOut");
+  				$("li").find("a").removeClass("topColor");
+  				$("header").addClass("headerIn");
+  				$("li").find("a").addClass("bottomColor");
+  			}
+  			startPosition = winScrollPosition;
+
+
+  			/* スクロール時フェードイン */
+  			jQuery('.fadein').each(function(){
+  	            var targetPosition = $(this).offset().top;
+  	            var windowHeight = $(window).height();
+  	            if (winScrollPosition > targetPosition - windowHeight + 100){
+  	                jQuery(this).addClass('scrollin');
+  	            }
+  	        });
+
+  		});
+  	});
   </script>
 </body>
 </html>

@@ -30,17 +30,40 @@ li.loginbutton{
 
 /* リンク装飾 */
 li a{
-	color: silver;
+	color: white;
 	text-decoration: none;
 }
 
 /* ヘッダー背景 */
 header {
 	height: 64px;
-	background-color: white;
 	position: fixed;
 	display: inline;
 	height: 90px;
 	width: 100%;
 	margin: auto;
+	z-index: 2;
+}
+
+/* ヘッダー背景OFF */
+.headerOut {
+	background-color: rgba(0, 0, 0, 0.0);
+	border: none;
+	transition: all 1s;
+}
+
+/* ヘッダー背景ON */
+.headerIn {
+	background-color: white;
+	border-top: solid 2px silver;
+	border-bottom: solid 2px silver;
+}
+/*ページ最上部時 白 */
+.topColor {
+	color: white;
+	transition: all 1s;
+}
+/* ページ最上部以外 グレー */
+.bottomColor {
+	color: darkgray;
 }

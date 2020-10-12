@@ -43,7 +43,7 @@ body {
 
 /* メイン画像 */
 .main-img {
-	background-image: url("../img/homeimg.jpg");
+	background-image: url("../img/redogsHome.jpg");
 }
 
 /* サブ背景 */
@@ -51,12 +51,12 @@ body {
     background-color: white;
 }
 
-
+/* メイン画像固定 */
 div.scroll{
 	box-sizing: border-box;
 	display: flex;
 	height: 100%;
-	padding: 420px;
+	padding: 480px;
 }
 
 /* サブタイトル */
@@ -68,12 +68,23 @@ div.scroll{
 .subtitle1 {
 	font-size: 25px;
 	position: absolute;
-	top: 1350px;
+	top: 1400px;
 	left: 200px;
 }
 .subtitle2 {
 	font-size: 25px;
 	position: absolute;
-	top: 2200px;
+	top: 2250px;
 	left: 200px;
+	margin-bottom: 1000px;
+}
+
+.fadein {
+    opacity : 0;
+    transform : translate(0, 50px);
+    transition:all 1s;
+}
+.fadein.scrollin {
+    opacity : 1;
+    transform : translate(0, 0);
 }
