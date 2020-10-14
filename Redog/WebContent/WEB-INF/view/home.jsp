@@ -52,10 +52,10 @@
 
   			if(winScrollPosition > startPosition){
   				$("header").slideUp(100);
-  				$("li+a").show("slide", {direction: "down"}, 1000);
+  				$("li").find("a").show("slide");
   			}else{
   				$("header").slideDown(100);
-  				$("li+a").show("slide", {direction: "down"}, 1000);
+  				$("li").find("a").show("slide");
   			}
   			if(winScrollPosition == 0){
   				$("header").removeClass("headerIn");
