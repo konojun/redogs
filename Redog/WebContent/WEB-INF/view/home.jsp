@@ -37,6 +37,7 @@
 	</div>
 	</div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
   <script>
   	$(function(){
   		$(".maintitle").hide();
@@ -51,10 +52,10 @@
 
   			if(winScrollPosition > startPosition){
   				$("header").slideUp(100);
-  				$("a").slideUp(100);
+  				$("li+a").show("slide", {direction: "down"}, 1000);
   			}else{
   				$("header").slideDown(100);
-  				$("a").slideDown(100);
+  				$("li+a").show("slide", {direction: "down"}, 1000);
   			}
   			if(winScrollPosition == 0){
   				$("header").removeClass("headerIn");

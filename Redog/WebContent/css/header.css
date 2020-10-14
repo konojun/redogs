@@ -23,14 +23,14 @@ li.loginbutton{
 .homebutton {
 	position:  absolute;
 	top: 23px;
-	left: 1%;
-	font-size: 25px;
+	left: 3%;
+	font-size: 28px;
 	display:inline;
 }
 
 /* リンク装飾 */
 li a{
-	color: white;
+	color: #f4a460;
 	text-decoration: none;
 }
 
@@ -43,6 +43,7 @@ header {
 	width: 100%;
 	margin: auto;
 	z-index: 2;
+	text-shadow:1px 0 5px white;
 }
 
 /* ヘッダー背景OFF */
@@ -54,16 +55,15 @@ header {
 
 /* ヘッダー背景ON */
 .headerIn {
-	background-color: white;
-	border-top: solid 2px silver;
-	border-bottom: solid 2px silver;
+	background-color: #f4a460;
+
 }
 /*ページ最上部時 白 */
 .topColor {
-	color: white;
+	color: #f4a460;
 	transition: all 1s;
 }
 /* ページ最上部以外 グレー */
 .bottomColor {
-	color: darkgray;
+	color: white;
 }
