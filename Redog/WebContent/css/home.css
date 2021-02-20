@@ -1,22 +1,27 @@
 @charset "UTF-8";
 
+/* 全体調整*/
+html {
+  min-height: 100%;
+  position: relative;
+}
 /* メインタイトル */
 h1.maintitle {
 	color: #f4a460;
-	font-size: 140px;
+	font-size: 145px;
 	display:inline;
 	position:absolute;
 	top: 320px;
-	left: 120px;
-	text-shadow: 3px 4px 5px #808080;
+	left: 125px;
+	text-shadow: 3px 4px 2px #626262;
 }
 
 /* 表題 */
 .poem {
 	font-size: 25px;
 	position: absolute;
-	top: 520px;
-	left: 200px;
+	top: 530px;
+	left: 215px;
 	text-shadow: 1px 2px 3px #808080;
 }
 
@@ -27,7 +32,7 @@ h1.maintitle {
 
 /* ボディ */
 body {
-	font-family: 'Sansita Swashed','メイリオ', cursive;
+	font-family: 'Swashed', cursive, sans-serif;
 	font-weight: bold;
 	margin: 0 auto;
 	height: 100%;
@@ -56,27 +61,27 @@ div.scroll{
 	box-sizing: border-box;
 	display: flex;
 	height: 100%;
-	padding: 480px;
+	padding: 500px;
 }
 
 /* サブタイトル */
-.subtitle {
-	font-size: 30px;
+h2 {
+	font-size: 24px;
 }
 
 /* サブタイトル位置 */
 .subtitle1 {
-	font-size: 25px;
+	font-size: 30px;
 	position: absolute;
 	top: 1400px;
 	left: 200px;
 }
 .subtitle2 {
-	font-size: 25px;
+	font-size: 30px;
 	position: absolute;
 	top: 2250px;
 	left: 200px;
-	margin-bottom: 1000px;
+	margin-bottom: 800px;
 }
 
 .fadein {
@@ -87,4 +92,7 @@ div.scroll{
 .fadein.scrollin {
     opacity : 1;
     transform : translate(0, 0);
+}
+.wrapper {
+	min-height: 100%;
 }

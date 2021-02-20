@@ -9,16 +9,24 @@
 </head>
 <body>
 	<header>
+		<ul>
 			<li class="homebutton">
-				<a href="Home">Re:dogs</a>
+				<a class="homeColor" href="Home">Re:dogs&nbsp;</a>
 			</li>
 			<li class="loginbutton">
-				<a href="Login">ログイン</a>
+				<a class="headerBottonColor" href="Login">ログイン</a>
 			</li>
 			<li class="entrybutton">
-				<a href="">新規登録</a>
+				<a class="headerBottonColor" href="Create">新規登録</a>
 			</li>
+		</ul>
 	</header>
 
+	<footer>
+		<ul class="footer">
+			<li><a href="Home">Home</a></li>
+			<li>お問い合わせ</li>
+		</ul>
+	</footer>
 </body>
 </html>

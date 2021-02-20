@@ -2,14 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@ include file="header.jsp" %>
 
-
-
 <!DOCTYPE html>
 <html>
 <head>
 <link rel="icon" type="image/x-icon" href="img/favicon.JPG">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/home.css" />
-<link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap" rel="stylesheet"><meta charset="UTF-8">
 <title>Re:dogs</title>
 <style type="text/css">
 	h1, h2, h3, h4, h5, h6 { margin-top: 0; margin-bottom: 0 }
@@ -27,21 +24,38 @@
 	<div class="sub-background">
 	<div class="subtitle1 fadein">
 	<h2>愛犬との思い出をクラウド上に保存</h2>
-		<p>&emsp;&emsp;Re:dogs&nbsp;では、大切な愛犬との思い出をクラウド上に保存することができます。</p>
+	<div>
+		<p>&emsp;&emsp;Re:dogs&nbsp;では、大切な愛犬との思い出を</p>
+		<p>&emsp;&emsp;クラウド上に保存することができます。</p>
+	</div>
 	</div>
 
 	<div class="subtitle2 fadein">
 	<h2>可愛いわんちゃんを全国で共有</h2>
-		<p>&emsp;&emsp;Re:dogsでは、自身がアップした愛犬の写真や動画を全国のユーザーに公開することができます。</p>
-		<p>&emsp;&emsp;全国の可愛いわんちゃんの写真や動画を共有して癒されましょう！</p>
+	<div>
+		<p>&emsp;&emsp;Re:dogsでは、自身がアップした愛犬の</p>
+		<p>&emsp;&emsp;写真や動画を全国のユーザーに公開する
+		<p>&emsp;&emsp;ことができます。</p>
+		<p>&emsp;&emsp;全国の可愛いわんちゃんの写真や動画を</p>
+		<p>&emsp;&emsp;共有して癒されましょう！</p>
+	</div>
 	</div>
 	</div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
   <script>
   	$(function(){
+
+  		/* フッター位置指定 */
+  		var footerHeight = $('.footer').outerHeight;
+  		var allHeight = Math.max.apply( null, [document.body.clientHeight , document.body.scrollHeight, document.documentElement.scrollHeight, document.documentElement.clientHeight] );  		var b=document.documentElement.clientHeight
+  		$('footer').attr({'style': 'position:absolute; top:' + (allHeight) + 'px;' });
+
+  		/* タイトルフェードイン */
   		$(".maintitle").hide();
-  		$(".maintitle").fadeIn(1000);
+  		$(".maintitle").delay(100).fadeIn(1000);
+  		$(".subtitle").hide();
+  		$(".subtitle").delay(600).fadeIn(1000);
 
   		 var startPosition = 0
   		  var winScrollPosition = 0;
@@ -52,24 +66,23 @@
 
   			if(winScrollPosition > startPosition){
   				$("header").slideUp(100);
-  				$("li").find("a").show("slide");
   			}else{
   				$("header").slideDown(100);
-  				$("li").find("a").show("slide");
   			}
   			if(winScrollPosition == 0){
   				$("header").removeClass("headerIn");
   				$("li").find("a").removeClass("bottomColor");
   				$("header").addClass("headerOut");
-  				$("li").find("a").addClass("topColor");
+  				$("li").find("a.headerBottonColor").addClass("topHeaderColor");
+  				$("li").find("a.homeColor").addClass("topHomeColor");
   			}else{
   				$("header").removeClass("headerOut");
-  				$("li").find("a").removeClass("topColor");
+  				$("li").find("a.headerBottonColor").removeClass("topHeaderColor");
+  				$("li").find("a.homeColor").removeClass("topHomeColor");
   				$("header").addClass("headerIn");
   				$("li").find("a").addClass("bottomColor");
   			}
   			startPosition = winScrollPosition;
-
 
   			/* スクロール時フェードイン */
   			jQuery('.fadein').each(function(){

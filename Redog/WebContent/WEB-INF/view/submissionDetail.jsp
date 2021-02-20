@@ -6,19 +6,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Re:dogs マイページ</title>
+<title>Re:dogs 投稿</title>
 <link rel="icon" type="image/x-icon" href="img/favicon.JPG">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/submissionDetail.css">
 </head>
 <body>
 	<h1>Re:dogs</h1>
-	<h2>最近の投稿</h2>
-	<div class="submission">
+	<h2>投稿</h2>
+		<div class="submission">
 			<form action="Submission" method="post">
 				<c:forEach var="item" items="${submissionData}" varStatus="sts">
-					<div>
-				    	<c:out value="${item.nickname}さん" />
-				    </div>
 					<div>
 				        <span class="title"><c:out value="${item.title}" /></span>
 				        <span class="createDate">投稿日&nbsp;<c:out value="${item.createDate}" /></span>
@@ -27,12 +24,13 @@
 				    	<c:out value="${item.article}" />
 				    </div>
 				    <div>
-				    	<img src="C:/Users/kohno/git/redogs/redogs/Redog/WebContent/img/luckychan.JPG" alt="dogImage">
+				    	<img src=".\58.png" alt="dogImage">
 				    </div>
 				    <br>
 				    <br>
 				</c:forEach>
+
 			</form>
-	</div>
+		</div>
 </body>
 </html>

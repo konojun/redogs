@@ -4,27 +4,30 @@ import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
-import service.CommonService;
-import service.LoginService;
+import service.SubmissionService;
 
 /**
- * Servlet implementation class LoginController
+ * Servlet implementation class SubmissionController
  */
-@WebServlet("/Login")
-public class LoginController extends HttpServlet {
+@WebServlet("/Submission")
+@MultipartConfig(location="/org", maxFileSize=1048576)
+public class SubmissionController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginController() {
+    public SubmissionController() {
         super();
+        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -36,7 +39,9 @@ public class LoginController extends HttpServlet {
 
 		// ログイン判定
 		if (loginSession != null) {
-			response.sendRedirect("Main");
+			String view = "/WEB-INF/view/submission.jsp";
+			RequestDispatcher dispatcher = request.getRequestDispatcher(view);
+			dispatcher.forward(request, response);
 		} else{
 			String view = "/WEB-INF/view/login.jsp";
 			RequestDispatcher dispatcher = request.getRequestDispatcher(view);
@@ -49,33 +54,22 @@ public class LoginController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String userId = request.getParameter("userId");
-		String password = request.getParameter("password");
-		boolean userCheckFlg = true;
-        String hashPassword = null;
+		HttpSession session = request.getSession(true);
+		String sessionId = session.getAttribute("LoginId").toString();
 
-        CommonService commonService = new CommonService();
-        LoginService loginService = new LoginService();
-
-			// パスワードをハッシュ化
-			hashPassword = commonService.hashPassword(userId, password);
-
-			// ログインユーザー認証
-			userCheckFlg = loginService.userAuthentication(userId, hashPassword);
-
-		// 認証失敗
-		if(!userCheckFlg) {
-			String view = "/WEB-INF/view/login.jsp";
-			request.setAttribute("userCheckFlg", userCheckFlg);
-			request.setAttribute("formUserId", userId);
-			RequestDispatcher dispatcher = request.getRequestDispatcher(view);
-
-			dispatcher.forward(request, response);
-
-		}else {			// 認証成功
-			HttpSession session = request.getSession(true);
-			session.setAttribute("LoginId",userId);
-			response.sendRedirect("Main");
+		if(sessionId == null) {
+			response.sendRedirect("Login");
 		}
+		String title = request.getParameter("title");
+		String article = request.getParameter("article");
+		Part part = request.getPart("file");
+		SubmissionService submissionService = new SubmissionService();
+
+		// 投稿
+		Integer fileId = submissionService.fileUpload(sessionId, title, article, part);
+		part.write(getServletContext().getRealPath("/WEB-INF/submissionFile/" + fileId + ".png"));
+
+		response.sendRedirect("SubmissionDetail");
 	}
+
 }

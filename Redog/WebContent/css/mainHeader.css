@@ -1,0 +1,123 @@
+@charset "UTF-8";
+
+body {
+	font-family: 'Swashed', cursive, sans-serif;
+	font-weight: bold;
+	height: 100%;
+	margin: 0 auto;
+	min-height: 100vh;
+}
+
+a.logoutBtn{
+	position: absolute;
+	right: 3%;
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
+	background-color: gray;
+	color: white;
+	width: 100%;
+	height: 190px;
+	text-align: center;
+}
+
+.footer{
+	margin-top: 80px;
+	font-family: 'Swashed', cursive, sans-serif;
+}
+
+footer li{
+	display:inline;
+	margin-left: 30px;
+}
+
+header {
+	position: absolute;
+	height:250px;
+}
+
+.menu {
+    max-width: 250px;
+    text-align: center;
+}
+
+.top {
+	position: absolute;
+	left:350px;
+	width:250px;
+}
+
+.post {
+	position: absolute;
+	left:605px;
+	width:230px;
+}
+
+.ranking {
+	position: absolute;
+	left:840px;
+	width:230px;
+}
+
+.friend {
+	position: absolute;
+	left:1075px;
+	width:230px;
+}
+
+.profile {
+	position: absolute;
+	left:1310px;
+	width:230px;
+}
+
+.menu a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: #000;
+}
+
+label {
+    display: block;
+    margin: 0 0 4px 0;
+    padding : 15px;
+    line-height: 1;
+    color :#fff;
+    background : #f4a460;
+    cursor :pointer;
+}
+
+input.accordion {
+    display: none;
+}
+
+.menu ul {
+    margin: 0;
+    padding: 0;
+    background :#f4f4f4;
+    list-style: none;
+    text-align: left;
+}
+
+.menu li {
+    height: 0;
+    overflow: hidden;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+#menu_bar01:checked ~ #links01 li,
+#menu_bar02:checked ~ #links02 li,
+#menu_bar03:checked ~ #links03 li,
+#menu_bar04:checked ~ #links04 li,
+#menu_bar05:checked ~ #links05 li {
+    height: 54px;
+    opacity: 1;
+}
+
