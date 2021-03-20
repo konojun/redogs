@@ -14,7 +14,7 @@ public class SubmissionDetailDao {
 
 	/** userIdから投稿情報を取得するメソッド */
 	public static List<SubmissionDetail> submissionData(String userId) {
-		String submissionInfo = "SELECT sform.user_id, sform.title, sform.article, sform.create_date, sfile.id, sfile.file_name FROM submission_form sform INNER JOIN submission_file sfile ON sform.id = sfile.submission_id WHERE sform.user_id=\"" + userId + "\" ORDER BY sform.create_date DESC";
+		String submissionInfo = "SELECT sform.user_id, sform.title, sform.article, sform.create_date, sfile.id, sfile.file_name, sfile.file_data FROM submission_form sform INNER JOIN submission_file sfile ON sform.id = sfile.submission_id WHERE sform.user_id=\"" + userId + "\" ORDER BY sform.create_date DESC";
 
 		//db処理
 		Connection con = null;
@@ -38,6 +38,7 @@ public class SubmissionDetailDao {
 				submissionDetail.setArticle(result.getString("article"));
 				submissionDetail.setFileId(result.getString("id"));
 				submissionDetail.setFileName(result.getString("file_name"));
+				submissionDetail.setFileData(result.getBinaryStream("file_data"));
 				submissionDetail.setCreateDate(result.getDate("create_date").toString());
 				submissionDetailList.add(submissionDetail);
 			}

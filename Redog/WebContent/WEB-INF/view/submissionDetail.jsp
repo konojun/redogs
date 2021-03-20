@@ -24,7 +24,7 @@
 				    	<c:out value="${item.article}" />
 				    </div>
 				    <div>
-				    	<img src=".\58.png" alt="dogImage">
+				    	<img src="data:image/png;base64,${item.fileData64}" />
 				    </div>
 				    <br>
 				    <br>

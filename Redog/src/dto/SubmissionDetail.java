@@ -1,5 +1,7 @@
 package dto;
 
+import java.io.InputStream;
+
 public class SubmissionDetail {
 
 	private String userId;
@@ -13,6 +15,10 @@ public class SubmissionDetail {
 	private String fileId;
 
 	private String fileName;
+
+	private InputStream fileData;
+
+	private String fileData64;
 
 	private String createDate;
 
@@ -63,6 +69,22 @@ public class SubmissionDetail {
 
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
+	}
+
+	public InputStream getFileData() {
+		return fileData;
+	}
+
+	public void setFileData(InputStream fileData) {
+		this.fileData = fileData;
+	}
+
+	public String getFileData64() {
+		return fileData64;
+	}
+
+	public void setFileData64(String fileData64) {
+		this.fileData64 = fileData64;
 	}
 
 	public String getCreateDate() {

@@ -65,9 +65,9 @@ public class SubmissionController extends HttpServlet {
 		Part part = request.getPart("file");
 		SubmissionService submissionService = new SubmissionService();
 
+
 		// 投稿
-		Integer fileId = submissionService.fileUpload(sessionId, title, article, part);
-		part.write(getServletContext().getRealPath("/WEB-INF/submissionFile/" + fileId + ".png"));
+		submissionService.fileUpload(sessionId, title, article, part);
 
 		response.sendRedirect("SubmissionDetail");
 	}

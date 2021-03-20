@@ -8,7 +8,7 @@ import dao.SubmissionFileDao;
 public class SubmissionService {
 
 	/** 投稿内容を保存メソッド */
-	public Integer fileUpload(String userId, String title, String article, Part part) {
+	public void fileUpload(String userId, String title, String article, Part part) {
 		Integer submissionId = null;
 
 		// 投稿内容を保存
@@ -18,12 +18,8 @@ public class SubmissionService {
 
 		// 画像を保存
 		String fileName = getFileName(part);
-		SubmissionFileDao.fileUpdate(userId, submissionId, fileName);
+		SubmissionFileDao.fileUpdate(userId, submissionId, fileName, part);
 
-		// ファイル名(ファイルid)を取得
-		Integer fileId = SubmissionFileDao.getFileId(userId);
-
-		return fileId;
 	}
 
 	private String getFileName(Part part) {

@@ -1,5 +1,7 @@
 package dao;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -8,17 +10,27 @@ import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.http.Part;
+
 public class SubmissionFileDao {
 
 	/** 画像情報を保存メソッド */
-	public static void fileUpdate(String userId, Integer submissionId, String fileName) {
+	public static void fileUpdate(String userId, Integer submissionId, String fileName, Part file) {
+			InputStream transFile = null;
 			// 作成日時取得
 			Date date = new Date();
 			SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 			String createDate = format.format(date);
 
+			// 画像をInputStreamに変換
+			try {
+				transFile = file.getInputStream();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+
 			// 新規作成SQL文
-			String createFile = "INSERT INTO submission_file VALUES (null,\"" + userId + "\",\"" + submissionId + "\",\"" + fileName + "\",\"" + createDate + "\",\""
+			String createFile = "INSERT INTO submission_file VALUES (null,\"" + userId + "\",\"" + submissionId + "\",\"" + fileName + "\",\"" + transFile + "\",\"" + createDate + "\",\""
 					+ createDate + "\")";
 
 			//db処理
